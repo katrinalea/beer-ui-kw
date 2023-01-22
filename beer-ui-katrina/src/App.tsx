@@ -1,12 +1,11 @@
 import BeerList from "./beerList";
-import NavBar from "./navBar";
-
+import Header from "./header";
 
 export default function App(): JSX.Element {
   return (
     <div>
-      <NavBar />
-     
+      <Header />
+
       <BeerList />
     </div>
   );

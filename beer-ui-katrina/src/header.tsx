@@ -1,4 +1,4 @@
-export default function NavBar(): JSX.Element {
+export default function Header(): JSX.Element {
   return (
     <div>
       <p> Beer UI</p>
