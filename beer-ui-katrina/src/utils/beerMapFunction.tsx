@@ -6,9 +6,9 @@ export default function BeerMapFunction(beerList: IBeers[]): JSX.Element {
       {beerList &&
         beerList.map((beer) => (
           <div key={beer.id} className="singleBeer">
-            <p>{beer.name}</p>
-            <p>{beer.abv}</p>
-            <p>{beer.volume.value + beer.volume.unit}</p>
+            <p>Beer Name: {beer.name}</p>
+            <p>Abv: {beer.abv}</p>
+            <p>Volume: {beer.volume.value + beer.volume.unit}</p>
             {beer.ingredients.malt && (
               <p>Malt: {beer.ingredients.malt[0].name}</p>
             )}
