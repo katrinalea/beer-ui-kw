@@ -20,15 +20,16 @@ export default function BeerList(): JSX.Element {
     fetchBeers();
   }, []);
 
-//----------------------------------------------------------------------- filtering beers via searchh term
-const filteredBeers = beerList && SearchFunction(beerList, searchTerm);
+  //----------------------------------------------------------------------- filtering beers via searchh term
+  const filteredBeers = beerList && SearchFunction(beerList, searchTerm);
 
-//----------------------------------------------------------------------- pagenation implementation
+  //----------------------------------------------------------------------- pagenation implementation
 
-  const totalPages = beerList && beerList.length / 5
-  const indexOfLastBeer = currentPage * 5; 
+  const totalPages = beerList && beerList.length / 5;
+  const indexOfLastBeer = currentPage * 5;
   const indexOfFirstBeer = indexOfLastBeer - 5; // slice the beer array so that only a certain no.beers are rendered per time
-  const currentBeers = filteredBeers && filteredBeers.slice(indexOfFirstBeer, indexOfLastBeer); 
+  const currentBeers =
+    filteredBeers && filteredBeers.slice(indexOfFirstBeer, indexOfLastBeer);
   const paginate = (pageNumber: number) => setCurrentPage(pageNumber);
 
   //-----------------------------------------------------------------------
@@ -46,9 +47,9 @@ const filteredBeers = beerList && SearchFunction(beerList, searchTerm);
         {currentBeers && BeerMapFunction(currentBeers)}
       </div>
       <Pagination
-            beerListLength={filteredBeers ? filteredBeers.length : 0}
-            paginate={paginate}
-          />
+        beerListLength={filteredBeers ? filteredBeers.length : 0}
+        paginate={paginate}
+      />
     </div>
   );
 }

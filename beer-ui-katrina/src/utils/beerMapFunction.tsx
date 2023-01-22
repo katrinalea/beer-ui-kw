@@ -1,12 +1,7 @@
 import { useState } from "react";
 import { IBeers } from "./interfaces";
 
-
-
 export default function BeerMapFunction(beerList: IBeers[]): JSX.Element {
-
-
-
   return (
     <div>
       {beerList &&
