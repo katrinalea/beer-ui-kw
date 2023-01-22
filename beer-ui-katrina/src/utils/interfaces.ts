@@ -7,6 +7,7 @@ export interface IBeers {
   abv: number;
   ingredients: IIngredients;
   foodPairing: string;
+  volume: IVolume;
 }
 
 export interface IIngredients {
@@ -14,6 +15,11 @@ export interface IIngredients {
   hops: IHops[];
   yeast: string;
 }
+export interface IVolume {
+  value: number;
+  unit: string;
+}
+
 export interface IMalt {
   name: string;
   amount: { value: number; unit: string };

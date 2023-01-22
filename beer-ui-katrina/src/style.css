@@ -1,0 +1,13 @@
+.beerContainer {
+  display: grid;
+  text-align: center;
+}
+
+.singleBeer {
+  border: 1px solid black;
+  width: 30%;
+  height: 5%;
+  margin-bottom: 5px;
+  margin-left: auto;
+  margin-right: auto;
+}

@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import BeerMapFunction from "./utils/beerMapFunction";
 import { IBeers } from "./utils/interfaces";
 
 export default function BeerList(): JSX.Element {
@@ -14,10 +15,8 @@ export default function BeerList(): JSX.Element {
     fetchBeers();
   }, []);
 
-//-----------------------------------------------------------------------
+  //-----------------------------------------------------------------------
   return (
-    <div>
-      <p> Beers</p>
-    </div>
+    <div className="beerContainer">{beerList && BeerMapFunction(beerList)}</div>
   );
 }
