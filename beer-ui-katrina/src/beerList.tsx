@@ -1,12 +1,13 @@
 import { useState, useEffect } from "react";
-
 import BeerMapFunction from "./utils/beerMapFunction";
 import { IBeers } from "./utils/interfaces";
+import { Pagination } from "./utils/pagination";
 import SearchFunction from "./utils/searchFunction";
 
 export default function BeerList(): JSX.Element {
   const [beerList, setBeerList] = useState<IBeers[]>();
   const [searchTerm, setSearchTerm] = useState<string>("");
+  const [currentPage, setCurrentPage] = useState(1);
 
   //----------------------------------------------------------------------- use effect, fetches beers from API and stores them in state
   useEffect(() => {
@@ -19,7 +20,16 @@ export default function BeerList(): JSX.Element {
     fetchBeers();
   }, []);
 
-  const filteredBeers = beerList && SearchFunction(beerList, searchTerm);
+//----------------------------------------------------------------------- filtering beers via searchh term
+const filteredBeers = beerList && SearchFunction(beerList, searchTerm);
+
+//----------------------------------------------------------------------- pagenation implementation
+
+  const totalPages = beerList && beerList.length / 5
+  const indexOfLastBeer = currentPage * 5; 
+  const indexOfFirstBeer = indexOfLastBeer - 5; // slice the beer array so that only a certain no.beers are rendered per time
+  const currentBeers = filteredBeers && filteredBeers.slice(indexOfFirstBeer, indexOfLastBeer); 
+  const paginate = (pageNumber: number) => setCurrentPage(pageNumber);
 
   //-----------------------------------------------------------------------
   return (
@@ -33,8 +43,12 @@ export default function BeerList(): JSX.Element {
         />
       </div>
       <div className="beerContainer">
-        {filteredBeers && BeerMapFunction(filteredBeers)}
+        {currentBeers && BeerMapFunction(currentBeers)}
       </div>
+      <Pagination
+            beerListLength={filteredBeers ? filteredBeers.length : 0}
+            paginate={paginate}
+          />
     </div>
   );
 }

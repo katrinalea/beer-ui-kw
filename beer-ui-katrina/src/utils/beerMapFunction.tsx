@@ -1,6 +1,12 @@
+import { useState } from "react";
 import { IBeers } from "./interfaces";
 
+
+
 export default function BeerMapFunction(beerList: IBeers[]): JSX.Element {
+
+
+
   return (
     <div>
       {beerList &&
@@ -22,6 +28,7 @@ export default function BeerMapFunction(beerList: IBeers[]): JSX.Element {
             <div className="beerImg">
               {beer.image_url && <img src={beer.image_url} alt="" />}
             </div>
+            <button>Show More</button>
           </div>
         ))}
     </div>
