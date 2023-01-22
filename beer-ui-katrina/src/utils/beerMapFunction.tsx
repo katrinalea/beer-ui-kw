@@ -18,12 +18,13 @@ export default function BeerMapFunction(beerList: IBeers[]): JSX.Element {
               {beer.ingredients.hops && (
                 <p>Hops: {beer.ingredients.hops[0].name}</p>
               )}
-              {beer.ingredients.yeast && <p>Yeast: {beer.ingredients.yeast}</p>}
+              {beer.ingredients.yeast && <p>Yeast: {beer.ingredients.yeast}</p>
+              }
+              <button>Show More</button>
             </div>
             <div className="beerImg">
               {beer.image_url && <img src={beer.image_url} alt="" />}
             </div>
-            <button>Show More</button>
           </div>
         ))}
     </div>
