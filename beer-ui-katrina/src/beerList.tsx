@@ -1,9 +1,12 @@
 import { useState, useEffect } from "react";
+
 import BeerMapFunction from "./utils/beerMapFunction";
 import { IBeers } from "./utils/interfaces";
+import SearchFunction from "./utils/searchFunction";
 
 export default function BeerList(): JSX.Element {
   const [beerList, setBeerList] = useState<IBeers[]>();
+  const [searchTerm, setSearchTerm] = useState<string>("")
 
   //----------------------------------------------------------------------- use effect, fetches beers from API and stores them in state
   useEffect(() => {
@@ -16,11 +19,16 @@ export default function BeerList(): JSX.Element {
     fetchBeers();
   }, []);
 
+  const filteredBeers = beerList && SearchFunction(beerList, searchTerm)
+
   //-----------------------------------------------------------------------
   return (
     <div>
-    <p>{beerList?.length}</p>
-    <div className="beerContainer">{beerList && BeerMapFunction(beerList)}</div>
+    <div>
+       <p> Search for a beer:</p>
+            <input type = "text" value = {searchTerm} onChange= {(e) => setSearchTerm(e.target.value)} />
+        </div>
+    <div className="beerContainer">{filteredBeers && BeerMapFunction(filteredBeers)}</div>
     </div>
   );
 }
