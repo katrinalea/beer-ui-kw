@@ -10,6 +10,7 @@ export default function BeerList(): JSX.Element {
     const fetchBeers = async () => {
       const response = await fetch("https://api.punkapi.com/v2/beers");
       const jsonBody: IBeers[] = await response.json();
+      console.log(jsonBody)
       setBeerList(jsonBody);
     };
     fetchBeers();
@@ -17,6 +18,9 @@ export default function BeerList(): JSX.Element {
 
   //-----------------------------------------------------------------------
   return (
+    <div>
+    <p>{beerList?.length}</p>
     <div className="beerContainer">{beerList && BeerMapFunction(beerList)}</div>
+    </div>
   );
 }

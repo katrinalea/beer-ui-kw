@@ -7,6 +7,7 @@ export default function BeerMapFunction(beerList: IBeers[]): JSX.Element {
         beerList.map((beer) => (
           <div className="singleBeer" key={beer.id}>
             <div>
+                <p>{beer.id}</p>
               <p>Beer Name: {beer.name}</p>
               <p>Abv: {beer.abv}</p>
               <p>Volume: {beer.volume.value + beer.volume.unit}</p>
@@ -18,8 +19,9 @@ export default function BeerMapFunction(beerList: IBeers[]): JSX.Element {
               )}
               {beer.ingredients.yeast && <p>Yeast: {beer.ingredients.yeast}</p>}
             </div>
-            <div className="beerImg">
-              <img src={beer.image_url} alt="" />
+            <div className="beerImg">{
+                beer.image_url &&
+              <img src={beer.image_url} alt="" />}
             </div>
           </div>
         ))}
