@@ -12,9 +12,9 @@ export function Pagination(props: PagProps): JSX.Element {
       {pageNumbers.length > 1
         ? pageNumbers.map((number) => (
             <li key={number}>
-              <a onClick={() => props.paginate(number) } href = "#">
+              <button onClick={() => props.paginate(number) }>
                 {number}
-              </a>
+              </button>
             </li>
           ))
         : null}
