@@ -20,12 +20,11 @@ export default function BeerList(): JSX.Element {
     fetchBeers();
   }, []);
 
-  //----------------------------------------------------------------------- filtering beers via searchh term
+  //----------------------------------------------------------------------- filtering beers via search term
   const filteredBeers = beerList && SearchFunction(beerList, searchTerm);
 
   //----------------------------------------------------------------------- pagenation implementation
 
-  const totalPages = beerList && beerList.length / 5;
   const indexOfLastBeer = currentPage * 5;
   const indexOfFirstBeer = indexOfLastBeer - 5; // slice the beer array so that only a certain no.beers are rendered per time
   const currentBeers =
@@ -46,6 +45,8 @@ export default function BeerList(): JSX.Element {
       <div className="beerContainer">
         {currentBeers && BeerMapFunction(currentBeers)}
       </div>
+      <br />
+      <br />
       <Pagination
         beerListLength={filteredBeers ? filteredBeers.length : 0}
         paginate={paginate}
