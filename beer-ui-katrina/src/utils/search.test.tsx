@@ -34,7 +34,5 @@ test("search bar function", () => {
   expect(SearchFunction([obj], "T")).toEqual(
     expect.arrayContaining([exampleObj])
   );
-  expect(SearchFunction([obj], "health")).toEqual(
-    expect.arrayContaining([])
-  );
+  expect(SearchFunction([obj], "health")).toEqual(expect.arrayContaining([]));
 });
