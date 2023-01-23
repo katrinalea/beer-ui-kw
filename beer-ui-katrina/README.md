@@ -2,4 +2,4 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-Installed eslint and prettier packages to make development smoother
+Installed eslint and prettier packages to make development smoother.
