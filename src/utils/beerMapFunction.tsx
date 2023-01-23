@@ -46,7 +46,11 @@ export function BeerMapFunction(props: mapProps): JSX.Element {
               ) : (
                 <div>
                   <p>Beer Description: {beer.description}</p>
-                  <p>Recommended to pair this beer with: {beer.foodPairing}</p>
+                  {beer.foodPairing && (
+                    <p>
+                      Recommended to pair this beer with: {beer.foodPairing}
+                    </p>
+                  )}
                   <button
                     className="button-drop-down"
                     onClick={() => handleDropDown(beer.id)}
