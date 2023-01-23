@@ -56,7 +56,7 @@ body {
 
 .pag-active {
   background-color: rgba(43, 125, 226, 0.693);
-  border:rgb(236, 239, 239);
+  border: rgb(236, 239, 239);
   border-radius: 10%;
   height: 20px;
   width: 25px;
@@ -65,7 +65,7 @@ body {
 }
 .pag-inactive {
   background-color: rgb(236, 239, 239);
-  border:rgb(236, 239, 239);
+  border: rgb(236, 239, 239);
   border-radius: 10%;
   height: 20px;
   width: 25px;
