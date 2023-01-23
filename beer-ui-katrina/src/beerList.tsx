@@ -5,32 +5,29 @@ import { Pagination } from "./utils/pagination";
 import SearchFunction from "./utils/searchFunction";
 
 export default function BeerList(): JSX.Element {
-  const [wholeBeerList, setWholeBeerList] = useState<IBeers[]>();
+  const [currentBeerList, setCurrentBeerList] = useState<IBeers[]>();
   const [searchTerm, setSearchTerm] = useState<string>("");
   const [currentPage, setCurrentPage] = useState(1);
 
   //----------------------------------------------------------------------- use effect, fetches beers from API and stores them in state
   useEffect(() => {
     const fetchBeers = async () => {
-      const response = await fetch("https://api.punkapi.com/v2/beers");
+      const response = await fetch(
+        `https://api.punkapi.com/v2/beers?page=${currentPage}&per_page=15`
+      );
       const jsonBody: IBeers[] = await response.json();
       console.log(jsonBody);
-      setWholeBeerList(jsonBody);
+      setCurrentBeerList(jsonBody);
     };
     fetchBeers();
-  }, []);
+  }, [currentPage, setCurrentPage]);
 
   //----------------------------------------------------------------------- filtering beers via search term
   const filteredBeers =
-    wholeBeerList && SearchFunction([...wholeBeerList], searchTerm);
+    currentBeerList && SearchFunction([...currentBeerList], searchTerm);
 
   //----------------------------------------------------------------------- pagenation implementation
 
-  const indexOfLastBeer = currentPage * 5;
-  const indexOfFirstBeer = indexOfLastBeer - 5; // slice the beer array so that only a certain no.beers are rendered per time
-  const currentBeers =
-    filteredBeers &&
-    [...filteredBeers].slice(indexOfFirstBeer, indexOfLastBeer);
   const paginate = (pageNumber: number) => setCurrentPage(pageNumber);
 
   //-----------------------------------------------------------------------
@@ -45,13 +42,16 @@ export default function BeerList(): JSX.Element {
         />
       </div>
       <div className="beerContainer">
-        {currentBeers && <BeerMapFunction beerListToMap={currentBeers} />}
+        {filteredBeers && (
+          <BeerMapFunction beerListToMap={[...filteredBeers]} />
+        )}
       </div>
       <br />
       <br />
       <Pagination
-        beerListLength={filteredBeers ? filteredBeers.length : 0}
+        beerListLength={filteredBeers ? filteredBeers.length : 325}
         paginate={paginate}
+        currentPage={currentPage}
       />
     </div>
   );

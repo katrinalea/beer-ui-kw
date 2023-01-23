@@ -53,3 +53,10 @@ li {
 body {
   text-align: center;
 }
+
+.pag-active {
+  background-color: blueviolet;
+}
+.pag-inactive {
+  background-color: aqua;
+}

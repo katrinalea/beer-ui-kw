@@ -1,17 +1,25 @@
 interface PagProps {
   beerListLength: number;
   paginate: (paginate: number) => void;
+  currentPage: number;
 }
 export function Pagination(props: PagProps): JSX.Element {
   const pageNumbers = [];
-  for (let i = 1; i <= Math.ceil(props.beerListLength / 5); i++) {
+  for (let i = 1; i <= Math.ceil(325 / 15); i++) {
     pageNumbers.push(i);
   }
   return (
     <nav>
       {pageNumbers.map((number) => (
         <li key={number}>
-          <button onClick={() => props.paginate(number)}>{number}</button>
+          <button
+            className={
+              props.currentPage === number ? "pag-active" : "pag-inactive"
+            }
+            onClick={() => props.paginate(number)}
+          >
+            {number}
+          </button>
         </li>
       ))}
     </nav>
