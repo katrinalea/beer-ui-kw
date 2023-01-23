@@ -17,18 +17,15 @@ export default function BeerList(): JSX.Element {
       );
       const jsonBody: IBeers[] = await response.json();
       console.log(jsonBody);
-      setCurrentBeerList(jsonBody);
+      const filteredBody = SearchFunction(jsonBody, searchTerm);
+      setCurrentBeerList(filteredBody);
     };
     fetchBeers();
-  }, [currentPage, setCurrentPage]);
+  }, [currentPage, searchTerm, setCurrentPage]);
 
   //----------------------------------------------------------------------- pagenation implementation
 
   const paginate = (pageNumber: number) => setCurrentPage(pageNumber);
-
-  //----------------------------------------------------------------------- filtering beers via search term
-  const filteredBeers =
-    currentBeerList && SearchFunction([...currentBeerList], searchTerm);
 
   //----------------------------------------------------------------------- rendered return
   return (
@@ -43,13 +40,13 @@ export default function BeerList(): JSX.Element {
         />
       </div>
       <div className="beerContainer">
-        {filteredBeers && (
-          <BeerMapFunction beerListToMap={[...filteredBeers]} />
+        {currentBeerList && (
+          <BeerMapFunction beerListToMap={[...currentBeerList]} />
         )}
       </div>
       <div className="pagenation">
         <Pagination
-          beerListLength={filteredBeers ? filteredBeers.length : 325}
+          beerListLength={currentBeerList ? currentBeerList.length : 325}
           paginate={paginate}
           currentPage={currentPage}
         />
