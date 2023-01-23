@@ -9,7 +9,7 @@ export default function BeerList(): JSX.Element {
   const [searchTerm, setSearchTerm] = useState<string>("");
   const [currentPage, setCurrentPage] = useState(1);
 
-  //----------------------------------------------------------------------- use effect, fetches beers from API and stores them in state
+  //----------------------------------------------------------------------- use effect, fetches beers from API according to page number
   useEffect(() => {
     const fetchBeers = async () => {
       const response = await fetch(
@@ -22,15 +22,17 @@ export default function BeerList(): JSX.Element {
     fetchBeers();
   }, [currentPage, setCurrentPage]);
 
-  //----------------------------------------------------------------------- filtering beers via search term
-  const filteredBeers =
-    currentBeerList && SearchFunction([...currentBeerList], searchTerm);
 
   //----------------------------------------------------------------------- pagenation implementation
 
   const paginate = (pageNumber: number) => setCurrentPage(pageNumber);
 
-  //-----------------------------------------------------------------------
+  //----------------------------------------------------------------------- filtering beers via search term
+  const filteredBeers =
+    currentBeerList && SearchFunction([...currentBeerList], searchTerm);
+
+
+  //----------------------------------------------------------------------- rendered return
   return (
     <div>
       <div>

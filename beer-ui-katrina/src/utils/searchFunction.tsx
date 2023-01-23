@@ -10,3 +10,6 @@ export default function SearchFunction(beerList: IBeers[], searchTerm: string) {
   }
   return searchList;
 }
+
+
+// function to filter beers via search term

@@ -24,7 +24,8 @@
     "eject": "react-scripts eject",
     "format": "prettier --write src",
     "format:check": "prettier --check src",
-    "lint": "eslint src"
+    "lint": "eslint src",
+    "jest": "jest"
   },
   "eslintConfig": {
     "extends": [
@@ -48,6 +49,7 @@
     "@typescript-eslint/eslint-plugin": "^5.48.2",
     "@typescript-eslint/parser": "^5.48.2",
     "eslint": "^8.32.0",
-    "eslint-plugin-react": "^7.32.1"
+    "eslint-plugin-react": "^7.32.1",
+    "jest": "^27.5.1"
   }
 }

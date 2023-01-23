@@ -7,7 +7,7 @@ interface mapProps {
 
 export default function BeerMapFunction(props: mapProps): JSX.Element {
   const [dropDown, setDropDown] = useState<number[]>([]);
-
+ //---------------------------------------------------------------------- function to allow drop down implementation
   const handleDropDown = (id: number) => {
     if (!dropDown.includes(id)) {
       setDropDown([...dropDown, id]);
