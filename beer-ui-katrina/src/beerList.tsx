@@ -34,10 +34,11 @@ export default function BeerList(): JSX.Element {
   return (
     <div>
       <div>
-        <p> Search for a beer:</p>
         <input
+          className="searchBar"
           type="text"
           value={searchTerm}
+          placeholder="Search for a beer..."
           onChange={(e) => setSearchTerm(e.target.value)}
         />
       </div>
