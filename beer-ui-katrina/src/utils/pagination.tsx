@@ -9,15 +9,11 @@ export function Pagination(props: PagProps): JSX.Element {
   }
   return (
     <nav>
-      {pageNumbers.length > 1
-        ? pageNumbers.map((number) => (
-            <li key={number}>
-              <button onClick={() => props.paginate(number) }>
-                {number}
-              </button>
-            </li>
-          ))
-        : null}
+      {pageNumbers.map((number) => (
+        <li key={number}>
+          <button onClick={() => props.paginate(number)}>{number}</button>
+        </li>
+      ))}
     </nav>
   );
 }

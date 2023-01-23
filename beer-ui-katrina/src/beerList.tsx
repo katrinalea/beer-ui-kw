@@ -5,7 +5,7 @@ import { Pagination } from "./utils/pagination";
 import SearchFunction from "./utils/searchFunction";
 
 export default function BeerList(): JSX.Element {
-  const [beerList, setBeerList] = useState<IBeers[]>();
+  const [wholeBeerList, setWholeBeerList] = useState<IBeers[]>();
   const [searchTerm, setSearchTerm] = useState<string>("");
   const [currentPage, setCurrentPage] = useState(1);
 
@@ -15,20 +15,22 @@ export default function BeerList(): JSX.Element {
       const response = await fetch("https://api.punkapi.com/v2/beers");
       const jsonBody: IBeers[] = await response.json();
       console.log(jsonBody);
-      setBeerList(jsonBody);
+      setWholeBeerList(jsonBody);
     };
     fetchBeers();
   }, []);
 
   //----------------------------------------------------------------------- filtering beers via search term
-  const filteredBeers = beerList && SearchFunction(beerList, searchTerm);
+  const filteredBeers =
+    wholeBeerList && SearchFunction([...wholeBeerList], searchTerm);
 
   //----------------------------------------------------------------------- pagenation implementation
 
   const indexOfLastBeer = currentPage * 5;
   const indexOfFirstBeer = indexOfLastBeer - 5; // slice the beer array so that only a certain no.beers are rendered per time
   const currentBeers =
-    filteredBeers && filteredBeers.slice(indexOfFirstBeer, indexOfLastBeer);
+    filteredBeers &&
+    [...filteredBeers].slice(indexOfFirstBeer, indexOfLastBeer);
   const paginate = (pageNumber: number) => setCurrentPage(pageNumber);
 
   //-----------------------------------------------------------------------
@@ -43,7 +45,7 @@ export default function BeerList(): JSX.Element {
         />
       </div>
       <div className="beerContainer">
-        {currentBeers && BeerMapFunction(currentBeers)}
+        {currentBeers && <BeerMapFunction beerListToMap={currentBeers} />}
       </div>
       <br />
       <br />
