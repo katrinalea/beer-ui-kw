@@ -1,19 +1,16 @@
 import { IBeers } from "./interfaces";
 import { useState } from "react";
+import { dropDownFilter} from "./dropDownFilter";
 
 interface mapProps {
   beerListToMap: IBeers[];
 }
 
-export default function BeerMapFunction(props: mapProps): JSX.Element {
+export function BeerMapFunction(props: mapProps): JSX.Element {
   const [dropDown, setDropDown] = useState<number[]>([]);
   //---------------------------------------------------------------------- function to allow drop down implementation
   const handleDropDown = (id: number) => {
-    if (!dropDown.includes(id)) {
-      setDropDown([...dropDown, id]);
-    } else {
-      setDropDown([...dropDown.filter((num) => num !== id)]);
-    }
+    setDropDown(dropDownFilter(id, dropDown))
   };
 
   return (

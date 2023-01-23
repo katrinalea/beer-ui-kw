@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import BeerMapFunction from "./utils/beerMapFunction";
+import {BeerMapFunction} from "./utils/beerMapFunction";
 import { IBeers } from "./utils/interfaces";
 import { Pagination } from "./utils/pagination";
 import { SearchFunction } from "./utils/searchFunction";
