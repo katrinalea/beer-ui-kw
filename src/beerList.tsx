@@ -33,7 +33,7 @@ export default function BeerList(): JSX.Element {
   //----------------------------------------------------------------------- rendered return
   return (
     <div>
-      <div>
+      <div className="beerDisplayPage">
         <input
           className="searchBar"
           type="text"
