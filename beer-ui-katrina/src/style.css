@@ -4,38 +4,66 @@
 }
 
 .singleBeer {
-  border: 1px solid black;
+  border-radius: 15px 225px 255px 15px 15px 255px 225px 15px;
+  border-style: solid;
+  border-width: 2px;
+  box-shadow: rgba(0, 0, 0, 0.2) 15px 28px 25px -18px;
+  box-sizing: border-box;
+  border-bottom-left-radius: 15px 255px;
+  border-bottom-right-radius: 225px 15px;
+  border-top-left-radius: 255px 15px;
+  border-top-right-radius: 15px 225px;
   width: 50vw;
   height: 20vw;
   margin-bottom: 5px;
   margin-left: auto;
   margin-right: auto;
-  display: flex;
+  display: grid;
+  grid-template-columns: fit-content(500px) fit-content(150px);
   margin-top: 5px;
   justify-content: center;
   padding: auto;
+  column-gap: 60px;
+  background-color: #fff;
 }
 
 .singleBeerDroppedDown {
-  border: 1px solid black;
+  border-radius: 15px 225px 255px 15px 15px 255px 225px 15px;
+  border-style: solid;
+  border-width: 2px;
+  box-shadow: rgba(0, 0, 0, 0.2) 15px 28px 25px -18px;
+  box-sizing: border-box;
+  border-bottom-left-radius: 15px 255px;
+  border-bottom-right-radius: 225px 15px;
+  border-top-left-radius: 255px 15px;
+  border-top-right-radius: 15px 225px;
   width: 50vw;
-  height: 25vw;
+  height: 28vw;
   margin-bottom: 5px;
   margin-left: auto;
   margin-right: auto;
-  display: flex;
+  display: grid;
+  grid-template-columns: fit-content(550px) fit-content(150px);
   margin-top: 5px;
   justify-content: center;
   padding: auto;
+  column-gap: 60px;
+  background-color: #fff;
 }
 
+.beerTitle {
+  grid-row: 1;
+  grid-column: 1 / span 2;
+}
 .beerInfo {
-  grid-column: 1 / span 3;
+  margin-right: 10px;
+  grid-column: 1;
+  grid-row: 2;
 }
 
 .beerImg {
-  margin-left: 50px;
-  grid-column: 4 / span 2;
+  grid-column: 2;
+  grid-row: 2;
 }
 
 img {
@@ -52,6 +80,8 @@ li {
 
 body {
   text-align: center;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  background-color: rgb(226, 207, 182);
 }
 
 .pag-active {
@@ -75,6 +105,7 @@ body {
 
 .header {
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  text-transform: capitalize;
 }
 
 .searchBar {
@@ -84,7 +115,7 @@ body {
   margin-bottom: 10px;
   margin-top: auto;
   padding: 5px;
-  border: rgb(196, 195, 195) 1px solid;
+  border: none;
   font-size: 16px;
   cursor: pointer;
   height: 25px;
@@ -92,4 +123,44 @@ body {
   border-radius: 9999px;
   box-shadow: -5px -5px 10px rgba(255, 255, 255, 0.8),
     5px 5px 10px rgba(0, 0, 0, 0.25);
+}
+
+.button-drop-down {
+  align-self: center;
+  background-color: rgba(43, 125, 226, 0.693);
+  background-image: none;
+  background-position: 0 90%;
+  background-repeat: repeat no-repeat;
+  background-size: 4px 3px;
+  border-radius: 15px 225px 255px 15px 15px 255px 225px 15px;
+  border-style: solid;
+  border-width: 2px;
+  box-shadow: rgba(0, 0, 0, 0.2) 15px 28px 25px -18px;
+  box-sizing: border-box;
+  color: #000000;
+  cursor: pointer;
+  display: inline-block;
+  font-family: Neucha, sans-serif;
+  font-size: 1rem;
+  line-height: 23px;
+  outline: none;
+  padding: 0.75rem;
+  text-decoration: none;
+  transition: all 235ms ease-in-out;
+  border-bottom-left-radius: 15px 255px;
+  border-bottom-right-radius: 225px 15px;
+  border-top-left-radius: 255px 15px;
+  border-top-right-radius: 15px 225px;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.button-drop-down:hover {
+  box-shadow: rgba(0, 0, 0, 0.3) 2px 8px 8px -5px;
+  transform: translate3d(0, 2px, 0);
+}
+
+.button-drop-down {
+  box-shadow: rgba(0, 0, 0, 0.3) 2px 8px 4px -6px;
 }

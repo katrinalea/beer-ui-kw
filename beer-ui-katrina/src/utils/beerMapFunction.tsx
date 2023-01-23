@@ -28,9 +28,8 @@ export default function BeerMapFunction(props: mapProps): JSX.Element {
             }
             key={beer.id}
           >
+            <h2 className="beerTitle">Beer Name: {beer.name}</h2>
             <div>
-              <p>{beer.id}</p>
-              <p>Beer Name: {beer.name}</p>
               <p>Abv: {beer.abv}</p>
               <p>Volume: {beer.volume.value + beer.volume.unit}</p>
               {beer.ingredients.malt && (
@@ -41,14 +40,20 @@ export default function BeerMapFunction(props: mapProps): JSX.Element {
               )}
               {beer.ingredients.yeast && <p>Yeast: {beer.ingredients.yeast}</p>}
               {!dropDown.includes(beer.id) ? (
-                <button onClick={() => handleDropDown(beer.id)}>
+                <button
+                  className="button-drop-down"
+                  onClick={() => handleDropDown(beer.id)}
+                >
                   Show More
                 </button>
               ) : (
                 <div>
                   <p>Beer Description: {beer.description}</p>
                   <p>Recommended to pair this beer with: {beer.foodPairing}</p>
-                  <button onClick={() => handleDropDown(beer.id)}>
+                  <button
+                    className="button-drop-down"
+                    onClick={() => handleDropDown(beer.id)}
+                  >
                     {" "}
                     Show less{" "}
                   </button>
