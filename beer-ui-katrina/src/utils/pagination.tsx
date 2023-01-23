@@ -26,4 +26,4 @@ export function Pagination(props: PagProps): JSX.Element {
   );
 }
 
-// returns buttons at the bottom of the page to change pages 
+// returns buttons at the bottom of the page to change pages

@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import BeerMapFunction from "./utils/beerMapFunction";
 import { IBeers } from "./utils/interfaces";
 import { Pagination } from "./utils/pagination";
-import SearchFunction from "./utils/searchFunction";
+import { SearchFunction } from "./utils/searchFunction";
 
 export default function BeerList(): JSX.Element {
   const [currentBeerList, setCurrentBeerList] = useState<IBeers[]>();
@@ -22,7 +22,6 @@ export default function BeerList(): JSX.Element {
     fetchBeers();
   }, [currentPage, setCurrentPage]);
 
-
   //----------------------------------------------------------------------- pagenation implementation
 
   const paginate = (pageNumber: number) => setCurrentPage(pageNumber);
@@ -30,7 +29,6 @@ export default function BeerList(): JSX.Element {
   //----------------------------------------------------------------------- filtering beers via search term
   const filteredBeers =
     currentBeerList && SearchFunction([...currentBeerList], searchTerm);
-
 
   //----------------------------------------------------------------------- rendered return
   return (
