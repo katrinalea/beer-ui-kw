@@ -9,3 +9,5 @@ Notes -
 Needs more testing, not sure where to implement this other than on the functions currently.
 
 Pagenation buttons at the bottom of the screen do not update as filter function takes place, unsure how to implement this sadly.
+
+netlify link to proj <a href = "beer-ui.netlify.app">
