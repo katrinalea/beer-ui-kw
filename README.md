@@ -1,4 +1,4 @@
-# Getting Started with Create React App
+# Beer UI, Oxbury assessment
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
@@ -10,4 +10,4 @@ Needs more testing, not sure where to implement this other than on the functions
 
 Pagenation buttons at the bottom of the screen do not update as filter function takes place, unsure how to implement this sadly.
 
-netlify link to proj <a href = "https://beer-ui.netlify.app/">
+Netlify link to deployed project [Beer UI]("https://beer-ui.netlify.app/")
