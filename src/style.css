@@ -1,4 +1,4 @@
-@-ms-viewport {
+@-ms-viewport{
   width: device-width;
 }
 
@@ -6,7 +6,7 @@
   display: flex;
   text-align: center;
   flex-direction: column;
-  margin-bottom: 30%;
+  margin-bottom: 5%;
   grid-row: 1;
 }
 
@@ -174,7 +174,6 @@ body {
   box-shadow: rgba(0, 0, 0, 0.3) 2px 8px 4px -6px;
 }
 .pagenation {
-  margin-top: 10%;
   grid-row: 2;
 }
 .beerDisplayPage {
