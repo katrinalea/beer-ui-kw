@@ -8,4 +8,4 @@ Added Continuous integration script to ensure constant linting and formatting ch
 Notes -
 Needs more testing, not sure where to implement this other than on the functions currently.
 
-Pagenation buttons at the bottom of the screen does not update as filter function takes place
+Pagenation buttons at the bottom of the screen do not update as filter function takes place, unsure how to implement this sadly.
