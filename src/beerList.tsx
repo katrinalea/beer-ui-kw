@@ -47,13 +47,13 @@ export default function BeerList(): JSX.Element {
           <BeerMapFunction beerListToMap={[...filteredBeers]} />
         )}
       </div>
-      <br />
-      <br />
-      <Pagination
-        beerListLength={filteredBeers ? filteredBeers.length : 325}
-        paginate={paginate}
-        currentPage={currentPage}
-      />
+      <div className="pagenation">
+        <Pagination
+          beerListLength={filteredBeers ? filteredBeers.length : 325}
+          paginate={paginate}
+          currentPage={currentPage}
+        />
+      </div>
     </div>
   );
 }

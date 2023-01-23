@@ -2,6 +2,7 @@
   display: grid;
   text-align: center;
   grid-template-rows: auto;
+  margin-bottom: 20%;
 }
 
 .singleBeer {
@@ -14,8 +15,8 @@
   border-bottom-right-radius: 225px 15px;
   border-top-left-radius: 255px 15px;
   border-top-right-radius: 15px 225px;
-  width: 70%;
-  height: 10%;
+  width: 60%;
+  height: 7%;
   margin-bottom: 5px;
   margin-left: auto;
   margin-right: auto;
@@ -26,6 +27,7 @@
   padding: auto;
   column-gap: 60px;
   background-color: #fff;
+  font-size: 100%;
 }
 
 .singleBeerDroppedDown {
@@ -38,8 +40,8 @@
   border-bottom-right-radius: 225px 15px;
   border-top-left-radius: 255px 15px;
   border-top-right-radius: 15px 225px;
-  width: 70%;
-  height: 15%;
+  width: 60%;
+  height: 9%;
   margin-bottom: 5px;
   margin-left: auto;
   margin-right: auto;
@@ -50,6 +52,7 @@
   padding: auto;
   column-gap: 60px;
   background-color: #fff;
+  font-size: 100%;
 }
 
 .beerTitle {
@@ -164,4 +167,7 @@ body {
 
 .button-drop-down {
   box-shadow: rgba(0, 0, 0, 0.3) 2px 8px 4px -6px;
+}
+.pagenation {
+  margin-top: 10px;
 }
