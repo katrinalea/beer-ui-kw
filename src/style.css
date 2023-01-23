@@ -1,6 +1,7 @@
 .beerContainer {
   display: grid;
   text-align: center;
+  grid-template-rows: auto;
 }
 
 .singleBeer {
