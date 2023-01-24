@@ -5,6 +5,8 @@ interface PagProps {
 }
 export function Pagination(props: PagProps): JSX.Element {
   const pageNumbers = [];
+  //ideally want to do beerListLength/15 so that pagination updates as api lengthens/is filtered, however in my case of fetching I only
+  //store 15 beers per time unsure how to access whole api at a time
   for (let i = 1; i <= Math.ceil(325 / 15); i++) {
     pageNumbers.push(i);
   }
